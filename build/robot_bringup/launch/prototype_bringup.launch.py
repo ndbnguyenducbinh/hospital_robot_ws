@@ -1,1 +1,0 @@
-/home/binhnguyenduc/Documents/hospital_robot_ws/src/robot_bringup/launch/prototype_bringup.launch.py

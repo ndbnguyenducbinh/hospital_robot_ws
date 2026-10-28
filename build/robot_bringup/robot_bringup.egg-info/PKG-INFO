@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: robot-bringup
-Version: 0.1.0
-Summary: Master bringup configurations, canonical topic maps, and launch files for Hospital Robot
-Maintainer: binhnguyenduc
-Maintainer-email: binh.nguyen.e1@ctuav.vn
-License: MIT

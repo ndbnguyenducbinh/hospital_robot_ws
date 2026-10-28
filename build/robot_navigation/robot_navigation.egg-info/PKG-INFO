@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: robot-navigation
-Version: 0.1.0
-Summary: Nav2 integration, semantic location lookup, and mission task manager for Hospital Robot
-Maintainer: binhnguyenduc
-Maintainer-email: binh.nguyen.e1@ctuav.vn
-License: MIT

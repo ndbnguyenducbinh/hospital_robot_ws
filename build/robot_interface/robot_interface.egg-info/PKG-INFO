@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: robot-interface
-Version: 0.1.0
-Summary: Gateway between external Tablet App and ROS 2 navigation stack
-Maintainer: binhnguyenduc
-Maintainer-email: binh.nguyen.e1@ctuav.vn
-License: MIT

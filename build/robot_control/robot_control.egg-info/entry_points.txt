@@ -1,2 +1,0 @@
-[console_scripts]
-safety_supervisor_node = robot_control.safety_supervisor_node:main

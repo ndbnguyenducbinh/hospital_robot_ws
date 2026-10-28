@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: robot-perception
-Version: 0.1.0
-Summary: LaserScan filtering and depth pointcloud processing for Hospital Robot
-Maintainer: binhnguyenduc
-Maintainer-email: binh.nguyen.e1@ctuav.vn
-License: MIT

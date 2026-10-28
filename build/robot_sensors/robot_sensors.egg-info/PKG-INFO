@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: robot-sensors
-Version: 0.1.0
-Summary: Hardware drivers and sensor bringup (2D LiDAR, Depth Camera, IMU) for Hospital Robot
-Maintainer: binhnguyenduc
-Maintainer-email: binh.nguyen.e1@ctuav.vn
-License: MIT

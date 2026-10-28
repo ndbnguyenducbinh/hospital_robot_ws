@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: robot-control
-Version: 0.1.0
-Summary: Safety supervision, MCU telemetry monitoring, and differential drive control
-Maintainer: binhnguyenduc
-Maintainer-email: binh.nguyen.e1@ctuav.vn
-License: MIT

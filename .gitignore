@@ -1,4 +1,18 @@
-/build
-/log
-/install
+# ROS 2 Colcon build directories
+build/
+install/
+log/
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+# Logs
 *.log
+
+# IDE & temporary files
+*~
+*.swp
