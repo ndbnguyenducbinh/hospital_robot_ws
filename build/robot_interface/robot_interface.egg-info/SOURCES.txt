@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+resource/robot_interface
+robot_interface/__init__.py
+robot_interface/tablet_bridge_node.py
+robot_interface.egg-info/PKG-INFO
+robot_interface.egg-info/SOURCES.txt
+robot_interface.egg-info/dependency_links.txt
+robot_interface.egg-info/entry_points.txt
+robot_interface.egg-info/requires.txt
+robot_interface.egg-info/top_level.txt
+robot_interface.egg-info/zip-safe

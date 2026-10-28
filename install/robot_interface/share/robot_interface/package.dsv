@@ -1,0 +1,9 @@
+source;share/robot_interface/hook/pythonpath.ps1
+source;share/robot_interface/hook/pythonpath.dsv
+source;share/robot_interface/hook/pythonpath.sh
+source;share/robot_interface/hook/ament_prefix_path.ps1
+source;share/robot_interface/hook/ament_prefix_path.dsv
+source;share/robot_interface/hook/ament_prefix_path.sh
+source;../../build/robot_interface/share/robot_interface/hook/pythonpath_develop.ps1
+source;../../build/robot_interface/share/robot_interface/hook/pythonpath_develop.dsv
+source;../../build/robot_interface/share/robot_interface/hook/pythonpath_develop.sh

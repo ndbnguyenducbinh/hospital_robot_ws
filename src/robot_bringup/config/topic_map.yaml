@@ -1,0 +1,77 @@
+# Hospital Reception Robot - Canonical Topic Map
+#
+# Hierarchy:
+#   /robot_{id}/interface/  — Tablet App, Cloud & HRI communication
+#   /robot_{id}/sensors/    — Raw hardware data (LiDAR, Depth Cam, Encoders)
+#   /robot_{id}/perception/ — Obstacle filtering & future human tracking
+#   /robot_{id}/navigation/ — Localization, Mapping, Nav2 Planning & Mission State
+#   /robot_{id}/control/    — Safety supervisor, ros2_control & MCU telemetry
+
+# ── 1. Interface (/robot_{id}/interface/) ───────────────────────────────────
+interface:
+  tablet:
+    goal_id: "/tablet/command/goal_id"       # [ACTIVE] std_msgs/String (e.g., "BLOOD_LAB_01")
+    cancel_task: "/tablet/command/cancel"    # [ACTIVE] std_msgs/Empty
+    robot_status: null                       # [PHASE 2] Feedback state to Tablet
+    battery_level: null                      # [PHASE 2] Battery percentage
+  hri_audio:
+    tts_prompt: null                         # [PHASE 2] Handled by Tablet in Phase 1
+    mic_raw: null                            # [PHASE 2] Handled by Tablet in Phase 1
+  cloud_bridge:
+    task_request: null                       # [PHASE 2] Direct Hospital Cloud sync
+
+# ── 2. Sensors (/robot_{id}/sensors/) ───────────────────────────────────────
+sensors:
+  lidar_2d:
+    scan_raw: "/scan"                        # [ACTIVE] sensor_msgs/LaserScan
+  camera_depth:
+    color_raw: null                          # [PHASE 2] RGB streaming disabled in Phase 1
+    depth_raw: "/camera/depth/image_rect_raw" # [ACTIVE] sensor_msgs/Image
+    camera_info: "/camera/depth/camera_info" # [ACTIVE] sensor_msgs/CameraInfo
+    pointcloud: "/camera/depth/color/points" # [ACTIVE] sensor_msgs/PointCloud2 (3D obstacle avoidance)
+  imu:
+    data_raw: "/imu/data_raw"                # [OPTIONAL] sensor_msgs/Imu
+  wheel_odom:
+    joint_states: "/joint_states"            # [ACTIVE] sensor_msgs/JointState (from MCU encoders)
+
+# ── 3. Perception (/robot_{id}/perception/) ─────────────────────────────────
+perception:
+  obstacle_processing:
+    filtered_scan: "/scan_filtered"          # [ACTIVE] sensor_msgs/LaserScan (robot footprint cropped)
+    depth_obstacles: "/perception/depth_obstacles" # [OPTIONAL] Processed 3D obstacles
+  human_tracking:
+    patient_detections: null                 # [PHASE 2] Follow-me / patient tracking
+    person_bbox_debug: null                  # [PHASE 2] Vision debug
+
+# ── 4. Navigation (/robot_{id}/navigation/) ─────────────────────────────────
+navigation:
+  localization:
+    odom_wheel: "/diff_drive_controller/odom" # [ACTIVE] nav_msgs/Odometry
+    odom_filtered: "/odometry/filtered"      # [OPTIONAL] EKF fused odometry
+    amcl_pose: "/amcl_pose"                  # [ACTIVE] geometry_msgs/PoseWithCovarianceStamped
+    initial_pose: "/initialpose"             # [ACTIVE] geometry_msgs/PoseWithCovarianceStamped
+  mapping:
+    static_map: "/map"                       # [ACTIVE] nav_msgs/OccupancyGrid
+    local_costmap: "/local_costmap/costmap"  # [ACTIVE] nav_msgs/OccupancyGrid
+    global_costmap: "/global_costmap/costmap" # [ACTIVE] nav_msgs/OccupancyGrid
+  planning:
+    global_plan: "/plan"                     # [ACTIVE] nav_msgs/Path
+    local_plan: "/local_plan"                # [ACTIVE] nav_msgs/Path
+    goal_pose: "/goal_pose"                  # [ACTIVE] geometry_msgs/PoseStamped
+  mission:
+    active_goal_id: "/task_manager/current_goal" # [ACTIVE] std_msgs/String
+    navigation_state: "/task_manager/state"  # [ACTIVE] Internal state (IDLE, NAVIGATING, ERROR)
+
+# ── 5. Control (/robot_{id}/control/) ───────────────────────────────────────
+control:
+  command:
+    cmd_vel_nav: "/cmd_vel_nav"              # [ACTIVE] geometry_msgs/Twist (from Nav2)
+    cmd_vel_teleop: "/cmd_vel_teleop"        # [ACTIVE] geometry_msgs/Twist (manual override)
+    cmd_vel_out: "/diff_drive_controller/cmd_vel_unstamped" # [ACTIVE] Final Twist to MCU
+  safety:
+    emergency_stop: "/safety/e_stop"         # [ACTIVE] std_msgs/Bool
+    collision_warning: null                  # [PHASE 2] Proximity slow-down trigger
+  mcu_telemetry:
+    motor_status: "/mcu/motor_status"        # [ACTIVE] Driver/Hub motor fault codes & encoder health
+    diagnostics: "/diagnostics"              # [ACTIVE] diagnostic_msgs/DiagnosticArray
+

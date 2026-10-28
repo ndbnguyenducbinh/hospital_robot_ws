@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing robot_interface.egg-info/PKG-INFO
+writing dependency_links to robot_interface.egg-info/dependency_links.txt
+writing entry points to robot_interface.egg-info/entry_points.txt
+writing requirements to robot_interface.egg-info/requires.txt
+writing top-level names to robot_interface.egg-info/top_level.txt
+reading manifest file 'robot_interface.egg-info/SOURCES.txt'
+writing manifest file 'robot_interface.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/binhnguyenduc/Documents/hospital_robot_ws/install/robot_interface/lib/python3.10/site-packages/robot-interface.egg-link (link to .)
+Installing tablet_bridge_node script to /home/binhnguyenduc/Documents/hospital_robot_ws/install/robot_interface/lib/robot_interface
+
+Installed /home/binhnguyenduc/Documents/hospital_robot_ws/build/robot_interface
+running symlink_data

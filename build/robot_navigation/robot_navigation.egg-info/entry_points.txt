@@ -1,0 +1,2 @@
+[console_scripts]
+task_manager_node = robot_navigation.task_manager_node:main

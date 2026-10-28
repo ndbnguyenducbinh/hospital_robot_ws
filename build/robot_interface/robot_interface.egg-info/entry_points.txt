@@ -1,0 +1,2 @@
+[console_scripts]
+tablet_bridge_node = robot_interface.tablet_bridge_node:main
