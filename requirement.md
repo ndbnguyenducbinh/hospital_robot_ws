@@ -291,32 +291,6 @@ sudo apt update && sudo apt install -y \
   python3-yaml
 
 ```
-
-
-
-### Build & Run
-
-```bash
-# 1. Clone workspace
-mkdir -p ~/hospital_robot_ws/src
-cd ~/hospital_robot_ws/src
-# <clone_repository_here>
-
-# 2. Build packages
-cd ~/hospital_robot_ws
-colcon build --symlink-install
-source install/setup.bash
-
-# 3. Launch full prototype stack
-ros2 launch robot_bringup prototype_bringup.launch.py
-
-# 4. Mock a Tablet command via CLI (for testing without Tablet)
-curl -X POST http://localhost:8000/api/v1/navigate \
-     -H "Content-Type: application/json" \
-     -d '{"destination_id": "BLOOD_LAB_01"}'
-
-```
-
 ---
 
 ## 7. 4-Week Implementation Roadmap
