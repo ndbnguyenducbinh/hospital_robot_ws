@@ -81,7 +81,7 @@ hospital_robot_ws/
 Mở terminal tại thư mục gốc của workspace:
 
 ```bash
-cd ~/Documents/hospital_robot_ws
+cd ~/hospital_robot_ws
 
 # 1. Source ROS 2 Humble
 source /opt/ros/humble/setup.bash
